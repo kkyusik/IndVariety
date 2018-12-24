@@ -17,3 +17,5 @@ imports:
         tibble
 Imports: 
     tibble
+URL: https://github.com/kkyusik/IndVariety
+BugReports: https://github.com/kkyusik/IndVariety/issues
