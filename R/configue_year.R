@@ -1,12 +1,12 @@
 #' configure year Function
 #'
 #' This function allows you to express your love of cats.
-#' @param love Do you love cats? Defaults to TRUE.
-#' @keywords configue_year
+#' @param input_year Put `year` you want to analyze.
+#' @keywords config_year
 #' @export
 #' @examples
-#' configue_year()
-configue_year <- function(input_year){
+#' config_year()
+config_year <- function(input_year){
         if (input_year %in% seq(1997, 2010)) {
                 year <- as.character(input_year)
                 ilocSido <- 0 + 1
@@ -40,10 +40,10 @@ configue_year <- function(input_year){
                 col_sgg <- 2
                 col_sido <- 1
         } else if (input_year %in% seq(2013, 2014)) {
-                year <- as.character(input_year)
-                ilocSido <- 0 + 1
-                ilocSgg <- 1 + 1
-                rangeDigit5 <- c("V4", "V5", "V6", "V7", "V8")
+                year = as.character(input_year)
+                ilocSido = 0 + 1
+                ilocSgg = 1 + 1
+                rangeDigit5 = c("V4", "V5", "V6", "V7", "V8")
                 ilocEmployee <- 28 + 1
                 col_sgg <- 3
                 col_sido <- 2
@@ -56,11 +56,24 @@ configue_year <- function(input_year){
                 col_sgg <- 3
                 col_sido <- 2
         }
-        return(year)
-        return(ilocSido)
-        return(ilocSgg)
-        return(rangeDigit5)
-        return(ilocEmployee)
-        return(col_sgg)
-        return(col_sido)
+# return(year)
+# return(ilocSido)
+# return(ilocSgg)
+# return(rangeDigit5)
+# return(ilocEmployee)
+# return(col_sgg)
+# return(col_sido)
+        # return(c(year, ilocSido))
+        summary = list(year = year,
+                       ilocSido = ilocSido,
+                       ilocSgg= ilocSgg,
+                       rangeDigit5 = rangeDigit5,
+                       ilocEmployee = ilocEmployee,
+                       col_sgg = col_sgg,
+                       col_sido = col_sido)
+        return(summary)
 }
+
+
+
+
