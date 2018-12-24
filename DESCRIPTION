@@ -1,0 +1,19 @@
+Package: IndVariety
+Title: A package for calculation of industrial variety.
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Kyusik",
+           family = "Kim",
+           role = c("aut", "cre"),
+           email = "wpkyusik@gmail.com",
+           comment = c(ORCID = "0000-0003-3753-3196"))
+Description: Calculation of industrial variety.
+License: CC0
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
+imports:
+        tibble
+Imports: 
+    tibble
