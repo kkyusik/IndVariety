@@ -2,9 +2,7 @@
 title: "Industrial Variety"
 author: "Kyusik Kim"
 date: "`r Sys.Date()`"
-output: 
-        rmarkdown::html_vignette:
-                fig_caption: yes
+output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Industrial Variety}
   %\VignetteEngine{knitr::rmarkdown}
