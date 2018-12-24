@@ -5,12 +5,10 @@ date: "`r Sys.Date()`"
 output: 
         rmarkdown::html_vignette:
                 fig_caption: yes
-
 vignette: >
   %\VignetteIndexEntry{Industrial Variety (IndVariety)}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-  
 bibliography: ref.bib
 ---
 
