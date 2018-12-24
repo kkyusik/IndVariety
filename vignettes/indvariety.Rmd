@@ -9,7 +9,6 @@ vignette: >
   %\VignetteIndexEntry{Industrial Variety (IndVariety)}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-bibliography: ref.bib
 ---
 
 ```{r setup, include = FALSE}
