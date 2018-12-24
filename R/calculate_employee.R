@@ -22,26 +22,26 @@ employee_number <- function(data, year) {
                 sgg_code.df <- eval(parse(text=paste0("sgg_code_", year)))
 
                 data <- data %>%
-                        mutate(sggCode = paste0(substr(data[, configYear$col_sgg],
+                        dplyr::mutate(sggCode = paste0(substr(data[, configYear$col_sgg],
                                                        configYear$ilocSido,
                                                        configYear$ilocSgg), "0")) %>%
-                        mutate(!!quo_name(sgg_name) :=
+                        dplyr::mutate(!!quo_name(sgg_name) :=
                                        case_when(data[, configYear$col_sido] %in% sdcode ~ paste0(data[, configYear$col_sido], "000"),
                                                  TRUE ~ paste0(data[, configYear$col_sido], sggCode)))
 
                 data <- left_join(x = data,
                                   y = sgg_code.df,
                                   by = sgg_name) %>%
-                        mutate(digit_5 = do.call(paste0, data[configYear$rangeDigit5])) %>%
-                        mutate(employee = as.numeric(data[, configYear$ilocEmployee])) %>%
-                        select(c(sgg2015, digit_5, employee)) %>%
-                        group_by(sgg2015, digit_5) %>%
-                        summarise(employee = sum(employee))
+                        dplyr::mutate(digit_5 = do.call(paste0, data[configYear$rangeDigit5])) %>%
+                        dplyr::mutate(employee = as.numeric(data[, configYear$ilocEmployee])) %>%
+                        dplyr::select(c(sgg2015, digit_5, employee)) %>%
+                        dplyr::group_by(sgg2015, digit_5) %>%
+                        dplyr::summarise(employee = sum(employee))
 
                 emp_col_name <- paste0("employee", year)
-                emp.df <- data %>% group_by(sgg2015) %>%
-                        summarise(employee = sum(employee)) %>%
-                        rename(!!quo_name(emp_col_name) := employee)
+                emp.df <- data %>% dplyr::group_by(sgg2015) %>%
+                        dplyr::summarise(employee = sum(employee)) %>%
+                        dplyr::rename(!!quo_name(emp_col_name) := employee)
 
 
 
@@ -50,24 +50,24 @@ employee_number <- function(data, year) {
         } else if (year == "2015"){
 
                 data <- data %>%
-                        mutate(sggCode = paste0(substr(data[, configYear$col_sgg],
+                        dplyr::mutate(sggCode = paste0(substr(data[, configYear$col_sgg],
                                                        configYear$ilocSido,
                                                        configYear$ilocSgg), "0")) %>%
-                        mutate(!!quo_name(sgg_name) :=
+                        dplyr::mutate(!!quo_name(sgg_name) :=
                                        case_when(data[, configYear$col_sido] %in% sdcode ~ paste0(data[, configYear$col_sido], "000"),
                                                  TRUE ~ paste0(data[, configYear$col_sido], sggCode)))
                 data <- data %>%
-                        mutate(digit_5 = do.call(paste0, data[configYear$rangeDigit5])) %>%
-                        mutate(employee = as.numeric(data[, configYear$ilocEmployee])) %>%
-                        select(c(sgg2015, digit_5, employee)) %>%
-                        group_by(sgg2015, digit_5) %>%
-                        summarise(employee = sum(employee))
+                        dplyr::mutate(digit_5 = do.call(paste0, data[configYear$rangeDigit5])) %>%
+                        dplyr::mutate(employee = as.numeric(data[, configYear$ilocEmployee])) %>%
+                        dplyr::select(c(sgg2015, digit_5, employee)) %>%
+                        dplyr::group_by(sgg2015, digit_5) %>%
+                        dplyr::summarise(employee = sum(employee))
 
 
                 emp_col_name <- paste0("employee", year)
-                emp.df <- data %>% group_by(sgg2015) %>%
-                        summarise(employee = sum(employee)) %>%
-                        rename(!!quo_name(emp_col_name) := employee)
+                emp.df <- data %>% dplyr::group_by(sgg2015) %>%
+                        dplyr::summarise(employee = sum(employee)) %>%
+                        dplyr::rename(!!quo_name(emp_col_name) := employee)
         }
 
         return(emp.df)

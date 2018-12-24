@@ -25,44 +25,44 @@ UV <- function(data, year) {
                 sgg_code.df <- eval(parse(text=paste0("sgg_code_", year)))
 
                 data <- data %>%
-                        mutate(sggCode = paste0(substr(data[, configYear$col_sgg],
+                        dplyr::mutate(sggCode = paste0(substr(data[, configYear$col_sgg],
                                                        configYear$ilocSido,
                                                        configYear$ilocSgg), "0")) %>%
-                        mutate(!!quo_name(sgg_name) :=
+                        dplyr::mutate(!!quo_name(sgg_name) :=
                                        case_when(data[, configYear$col_sido] %in% sdcode ~ paste0(data[, configYear$col_sido], "000"),
                                                  TRUE ~ paste0(data[, configYear$col_sido], sggCode)))
 
-                data <- left_join(x = data,
+                data <- dplyr::left_join(x = data,
                                   y = sgg_code.df,
                                   by = sgg_name) %>%
-                        mutate(digit_5 = do.call(paste0, data[configYear$rangeDigit5])) %>%
-                        mutate(employee = as.numeric(data[, configYear$ilocEmployee])) %>%
-                        select(c(sgg2015, digit_5, employee)) %>%
-                        group_by(sgg2015, digit_5) %>%
-                        summarise(employee = sum(employee))
+                        dplyr::mutate(digit_5 = do.call(paste0, data[configYear$rangeDigit5])) %>%
+                        dplyr::mutate(employee = as.numeric(data[, configYear$ilocEmployee])) %>%
+                        dplyr:: select(c(sgg2015, digit_5, employee)) %>%
+                        dplyr::group_by(sgg2015, digit_5) %>%
+                        dplyr::summarise(employee = sum(employee))
 
                 uv.val <- data %>%
-                        mutate(digit_2 = substr(digit_5, 1, 3))
+                        dplyr::mutate(digit_2 = substr(digit_5, 1, 3))
                 sum_emp <- uv.val %>%        # Create total employee by sigungu
-                        group_by(sgg2015) %>%
-                        summarise(sum_employee = sum(employee))
-                uv.val <- left_join(x = uv.val,
+                        dplyr::group_by(sgg2015) %>%
+                        dplyr::summarise(sum_employee = sum(employee))
+                uv.val <- dplyr::left_join(x = uv.val,
                                 y = sum_emp,
                                 by = 'sgg2015') %>%    # Calculate pi (shares of 5 digit)
-                        mutate(pi = employee/sum_employee)
+                        dplyr::mutate(pi = employee/sum_employee)
 
                 uv_col_name <- paste0("UV", year)
 
                 pg <- uv.val %>%
-                        group_by(sgg2015, digit_2) %>%
-                        summarise(pg_sum = sum(pi)) %>%                                 # Calculate Pg
-                        mutate(log_pg = log2(1/pg_sum)) %>%                             # Calculate log2(1/Pg)
-                        mutate(UV = pg_sum * log_pg)
+                        dplyr::group_by(sgg2015, digit_2) %>%
+                        dplyr::summarise(pg_sum = sum(pi)) %>%                                 # Calculate Pg
+                        dplyr::mutate(log_pg = log2(1/pg_sum)) %>%                             # Calculate log2(1/Pg)
+                        dplyr::mutate(UV = pg_sum * log_pg)
 
                 uv.val <- pg %>%                                                            # Sum of UV by sigungu
-                        group_by(sgg2015) %>%
-                        summarise(UV = sum(UV)) %>%
-                        rename(!!quo_name(uv_col_name) := UV)
+                        dplyr::group_by(sgg2015) %>%
+                        dplyr::summarise(UV = sum(UV)) %>%
+                        dplyr:: rename(!!quo_name(uv_col_name) := UV)
 
 
 
@@ -70,42 +70,42 @@ UV <- function(data, year) {
         } else if (year == "2015"){
 
                 data <- data %>%
-                        mutate(sggCode = paste0(substr(data[, configYear$col_sgg],
+                        dplyr::mutate(sggCode = paste0(substr(data[, configYear$col_sgg],
                                                        configYear$ilocSido,
                                                        configYear$ilocSgg), "0")) %>%
-                        mutate(!!quo_name(sgg_name) :=
+                        dplyr::mutate(!!quo_name(sgg_name) :=
                                        case_when(data[, configYear$col_sido] %in% sdcode ~ paste0(data[, configYear$col_sido], "000"),
                                                  TRUE ~ paste0(data[, configYear$col_sido], sggCode)))
                 data <- data %>%
-                        mutate(digit_5 = do.call(paste0, data[configYear$rangeDigit5])) %>%
-                        mutate(employee = as.numeric(data[, configYear$ilocEmployee])) %>%
-                        select(c(sgg2015, digit_5, employee)) %>%
-                        group_by(sgg2015, digit_5) %>%
-                        summarise(employee = sum(employee))
+                        dplyr::mutate(digit_5 = do.call(paste0, data[configYear$rangeDigit5])) %>%
+                        dplyr::mutate(employee = as.numeric(data[, configYear$ilocEmployee])) %>%
+                        dplyr:: select(c(sgg2015, digit_5, employee)) %>%
+                        dplyr::group_by(sgg2015, digit_5) %>%
+                        dplyr::summarise(employee = sum(employee))
 
                 # UV <- data
                 uv.val <- data %>%
-                        mutate(digit_2 = substr(digit_5, 1, 3))
+                        dplyr::mutate(digit_2 = substr(digit_5, 1, 3))
                 sum_emp <- uv.val %>%        # Create total employee by sigungu
-                        group_by(sgg2015) %>%
-                        summarise(sum_employee = sum(employee))
-                uv.val <- left_join(x = uv.val,
+                        dplyr::group_by(sgg2015) %>%
+                        dplyr::summarise(sum_employee = sum(employee))
+                uv.val <- dplyr::left_join(x = uv.val,
                                     y = sum_emp,
                                     by = 'sgg2015') %>%    # Calculate pi (shares of 5 digit)
-                        mutate(pi = employee/sum_employee)
+                        dplyr::mutate(pi = employee/sum_employee)
 
                 uv_col_name <- paste0("UV", year)
 
                 pg <- uv.val %>%
-                        group_by(sgg2015, digit_2) %>%
-                        summarise(pg_sum = sum(pi)) %>%                                 # Calculate Pg
-                        mutate(log_pg = log2(1/pg_sum)) %>%                             # Calculate log2(1/Pg)
-                        mutate(UV = pg_sum * log_pg)
+                        dplyr::group_by(sgg2015, digit_2) %>%
+                        dplyr::summarise(pg_sum = sum(pi)) %>%                                 # Calculate Pg
+                        dplyr::mutate(log_pg = log2(1/pg_sum)) %>%                             # Calculate log2(1/Pg)
+                        dplyr::mutate(UV = pg_sum * log_pg)
 
                 uv.val <- pg %>%                                                            # Sum of UV by sigungu
-                        group_by(sgg2015) %>%
-                        summarise(UV = sum(UV)) %>%
-                        rename(!!quo_name(uv_col_name) := UV)
+                        dplyr::group_by(sgg2015) %>%
+                        dplyr::summarise(UV = sum(UV)) %>%
+                        dplyr:: rename(!!quo_name(uv_col_name) := UV)
         }
 
         return(uv.val)
