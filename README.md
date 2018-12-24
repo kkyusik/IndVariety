@@ -24,18 +24,22 @@ calculate related and unrelated variety I refer to the research of
 remotes::install_github("kkyusik/IndVariety")
 ```
 
-## usage
+## Usage
 
-UV(data, year) RV(data, year) employee\_number(data, year)
+``` r
+UV(data, year)
+RV(data, year)
+employee_number(data, year)
+```
 
-## parameters
+## Parameters
 
 `data` is dataframe of Korean Business Survey data. You are able to
 download the data from [Microdata Integrated
 Service](https://mdis.kostat.go.kr/index.do). `year` indicates what you
 want to calculate year of data.
 
-## example
+## Example
 
 ``` r
 library(IndVariety)
