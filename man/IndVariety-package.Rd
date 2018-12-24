@@ -8,6 +8,14 @@
 \description{
 Calculation of industrial variety.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/kkyusik/IndVariety}
+  \item Report bugs at \url{https://github.com/kkyusik/IndVariety/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Kyusik Kim \email{wpkyusik@gmail.com} (0000-0003-3753-3196)
 

@@ -1,3 +1,11 @@
+#' configure year Function
+#'
+#' This function allows you to express your love of cats.
+#' @param love Do you love cats? Defaults to TRUE.
+#' @keywords config_year
+#' @export
+#' @examples
+#' config_year()
 config_year <- function(input_year){
         if (input_year %in% seq(1997, 2010)) {
                 year <- as.character(input_year)
