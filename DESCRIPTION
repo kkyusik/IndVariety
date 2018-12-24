@@ -16,6 +16,8 @@ RoxygenNote: 6.1.1
 imports:
         tibble
 Imports: 
-    tibble
+    tibble,
+    dplyr,
+    ggplot2
 URL: https://github.com/kkyusik/IndVariety
 BugReports: https://github.com/kkyusik/IndVariety/issues
