@@ -13,7 +13,7 @@
 #' @importFrom dplyr left_join
 #' @importFrom dplyr select
 #' @importFrom dplyr rename
-#' @importFrom magrittr "%>%"
+
 
 
 employee_number <- function(data, year) {

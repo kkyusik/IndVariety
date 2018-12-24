@@ -13,7 +13,7 @@
 #' @importFrom dplyr left_join
 #' @importFrom dplyr select
 #' @importFrom dplyr rename
-#' @importFrom magrittr "%>%"
+
 #'
 #'
 config_year <- function(input_year){

@@ -14,7 +14,7 @@
 #' @importFrom dplyr left_join
 #' @importFrom dplyr select
 #' @importFrom dplyr rename
-#' @importFrom magrittr "%>%"
+
 
 UV <- function(data, year) {
 
