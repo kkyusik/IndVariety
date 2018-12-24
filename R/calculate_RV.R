@@ -13,6 +13,7 @@
 #' @importFrom dplyr left_join
 #' @importFrom dplyr select
 #' @importFrom dplyr rename
+#' @importFrom magrittr "%>%"
 
 
 RV <- function(data, year) {
