@@ -3,45 +3,91 @@
 
 # IndVariety
 
-The goal of IndVariety is to …
+## Industrial variety
 
-## Installation
+Related variety of regional industry can be Jacobs externalities, which
+means knowledge spillovers between related corporations or industries.
+In contrast, the unrelated variety that means the extent of
+dissimilarity within industries in a given region, which addresses the
+effects of a portfolio, in fact, the higher unrelated variety means the
+stronger from external economic shocks.
 
-You can install the released version of IndVariety from
-[CRAN](https://CRAN.R-project.org) with:
+Each variety is calculated from the entropy index. The advantage of
+using entropy index is that the index cannot cause multicollinearity in
+linear regression model (FRENKENÃ, VAN OORTÃ, and VERBURG 2007). To
+calculate related and unrelated variety I refer to the research of
+FRENKENÃ, VAN OORTÃ, and VERBURG (2007), and the index can be calculated
+as follow:
+
+\[
+P_g = \sum_{i \in S}P_i
+\]
+
+\(P_g\) is calculated by summation of shares of 5-digit sectors within
+2-digit sectors \(S_g\). Based on \(P_g\), unrelated variety is derived
+in 2-digit levels.
+
+\[
+UV = \sum_{g=1}^{G}P_g \log \left(\frac{1}{P_g}\right)
+\]
+
+Within each 2-digit level, related variety is weighted sum of entropy.
+
+\[
+RV = \sum_{g=1}^{G}P_g H_g
+\]
+
+And \(H_g\) is as follow,
+
+\[
+H_g = \sum_{i \in S_g}\frac{p_i}{P_g} \log_2 \left(\frac{1}{p_i/P_g}\right)
+\]
+
+## Install package
 
 ``` r
-install.packages("IndVariety")
+remotes::install_github("kkyusik/IndVariety")
 ```
 
-## Example
+## usage
 
-This is a basic example which shows you how to solve a common problem:
+UV(data, year) RV(data, year) employee\_number(data, year)
+
+## parameters
+
+`data` is dataframe of Korean Business Survey data. You are able to
+download the data from [Microdata Integrated
+Service](https://mdis.kostat.go.kr/index.do). `year` indicates what you
+want to calculate year of data.
+
+## example
 
 ``` r
-## basic example code
+library(IndVariety)
+
+# Load dataframe
+data <- read.table("your data", colClasses = "character")
+
+# Calculation Unrelated Variety
+UV(data = data, year = 2013)
+
+# Calculation Related Variety
+RV(data = data, year = 2013)
+
+# Calculation the number of total workers
+employee_number(data = data, year = 2013)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+**Reference**
 
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
+<div id="refs" class="references">
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date.
+<div id="ref-frenken_2007">
 
-You can also embed plots, for example:
+FRENKENÃ, KOEN, FRANK VAN OORTÃ, and THIJS VERBURG. 2007. “Related
+Variety, Unrelated Variety and Regional Economic Growth.” *Regional
+Studies* 41: 685–97.
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+</div>
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub\!
+</div>

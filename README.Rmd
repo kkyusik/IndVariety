@@ -1,5 +1,6 @@
 ---
 output: github_document
+bibliography: ref.bib
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -12,38 +13,69 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
+
 # IndVariety
 
-The goal of IndVariety is to ...
+## Industrial variety
 
-## Installation
+Related variety of regional industry can be Jacobs externalities, which means knowledge spillovers between related corporations or industries. In contrast, the unrelated variety that means the extent of dissimilarity within industries in a given region, which addresses the effects of a portfolio, in fact, the higher unrelated variety means the stronger from external economic shocks.  
 
-You can install the released version of IndVariety from [CRAN](https://CRAN.R-project.org) with:
+Each variety is calculated from the entropy index. The advantage of using entropy index is that the index cannot cause multicollinearity in linear regression model [@frenken_2007]. To calculate related and unrelated variety I refer to the research of @frenken_2007, and the index can be calculated as follow:
 
-``` r
-install.packages("IndVariety")
+$$
+P_g = \sum_{i \in S}P_i
+$$
+
+$P_g$ is calculated by summation of shares of 5-digit sectors within 2-digit sectors $S_g$. Based on $P_g$, unrelated variety is derived in 2-digit levels. 
+
+$$
+UV = \sum_{g=1}^{G}P_g \log \left(\frac{1}{P_g}\right)
+$$
+
+Within each 2-digit level, related variety is weighted sum of entropy. 
+
+$$
+RV = \sum_{g=1}^{G}P_g H_g
+$$
+
+And $H_g$ is as follow,
+
+$$
+H_g = \sum_{i \in S_g}\frac{p_i}{P_g} \log_2 \left(\frac{1}{p_i/P_g}\right)
+$$
+
+## Install package
+```r
+remotes::install_github("kkyusik/IndVariety")
 ```
 
-## Example
+## usage
+UV(data, year)
+RV(data, year)
+employee_number(data, year)
 
-This is a basic example which shows you how to solve a common problem:
+## parameters
 
-```{r example}
-## basic example code
+`data` is dataframe of Korean Business Survey data. You are able to download the data from [Microdata Integrated Service](https://mdis.kostat.go.kr/index.do).
+`year` indicates what you want to calculate year of data.
+
+## example 
+```r
+library(IndVariety)
+
+# Load dataframe
+data <- read.table("your data", colClasses = "character")
+
+# Calculation Unrelated Variety
+UV(data = data, year = 2013)
+
+# Calculation Related Variety
+RV(data = data, year = 2013)
+
+# Calculation the number of total workers
+employee_number(data = data, year = 2013)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
 
-```{r cars}
-summary(cars)
-```
+__Reference__
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
