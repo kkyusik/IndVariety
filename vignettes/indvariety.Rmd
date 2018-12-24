@@ -1,12 +1,12 @@
 ---
-title: "Package for Industrial Variety based on Korean Business Survey data"
+title: "Industrial Variety"
 author: "Kyusik Kim"
 date: "`r Sys.Date()`"
 output: 
         rmarkdown::html_vignette:
                 fig_caption: yes
 vignette: >
-  %\VignetteIndexEntry{Industrial Variety (IndVariety)}
+  %\VignetteIndexEntry{Industrial Variety}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 )
 ```
 
+# Package for Industrial Variety based on Korean Business Survey data
 
 ## Industrial variety
 
