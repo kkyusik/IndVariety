@@ -15,6 +15,7 @@ UV(data, year)
 This function allows you to calculate Unrelated Variety index based on 2015 administration.
 }
 \examples{
+
 data <- read.table("KoreanBusinessSurvey.txt", sep = "\\t", colClasses = "character")
 UV(data = data, year = 2013)
 }

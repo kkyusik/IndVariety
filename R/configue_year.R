@@ -6,6 +6,15 @@
 #' @export
 #' @examples
 #' config_year()
+#'
+#' @importFrom dplyr mutate
+#' @importFrom dplyr summarise
+#' @importFrom dplyr group_by
+#' @importFrom dplyr left_join
+#' @importFrom dplyr select
+#' @importFrom dplyr rename
+#'
+#'
 config_year <- function(input_year){
         if (input_year %in% seq(1997, 2010)) {
                 year <- as.character(input_year)
@@ -56,14 +65,7 @@ config_year <- function(input_year){
                 col_sgg <- 3
                 col_sido <- 2
         }
-# return(year)
-# return(ilocSido)
-# return(ilocSgg)
-# return(rangeDigit5)
-# return(ilocEmployee)
-# return(col_sgg)
-# return(col_sido)
-        # return(c(year, ilocSido))
+
         summary = list(year = year,
                        ilocSido = ilocSido,
                        ilocSgg= ilocSgg,

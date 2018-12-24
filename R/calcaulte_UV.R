@@ -5,9 +5,15 @@
 #' @param year Put `year` you want to calculate.
 #' @export
 #' @examples
+#'
 #' data <- read.table("KoreanBusinessSurvey.txt", sep = "\t", colClasses = "character")
 #' UV(data = data, year = 2013)
-
+#' @importFrom dplyr mutate
+#' @importFrom dplyr summarise
+#' @importFrom dplyr group_by
+#' @importFrom dplyr left_join
+#' @importFrom dplyr select
+#' @importFrom dplyr rename
 
 UV <- function(data, year) {
 

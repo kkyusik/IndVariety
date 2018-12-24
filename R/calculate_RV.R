@@ -7,7 +7,12 @@
 #' @examples
 #' data <- read.table("KoreanBusinessSurvey.txt", sep = "\t", colClasses = "character")
 #' RV(data = data, year = 2013)
-
+#' @importFrom dplyr mutate
+#' @importFrom dplyr summarise
+#' @importFrom dplyr group_by
+#' @importFrom dplyr left_join
+#' @importFrom dplyr select
+#' @importFrom dplyr rename
 
 RV <- function(data, year) {
 
@@ -36,7 +41,7 @@ RV <- function(data, year) {
                                   by = sgg_name) %>%
                         dplyr::mutate(digit_5 = do.call(paste0, data[configYear$rangeDigit5])) %>%
                         dplyr::mutate(employee = as.numeric(data[, configYear$ilocEmployee])) %>%
-                        dplyr:: select(c(sgg2015, digit_5, employee)) %>%
+                        dplyr::select(c(sgg2015, digit_5, employee)) %>%
                         dplyr::group_by(sgg2015, digit_5) %>%
                         dplyr::summarise(employee = sum(employee))
 
@@ -67,7 +72,7 @@ RV <- function(data, year) {
                         dplyr::mutate(RV = pg * hg_sum) %>%                                # Calculate RV
                         dplyr::group_by(sgg2015) %>%                                           # Sum of RV by sigungu
                         dplyr::summarise(RV = sum(RV)) %>%
-                        dplyr:: rename(!!quo_name(rv_col_name) := RV)
+                        dplyr::rename(!!quo_name(rv_col_name) := RV)
 
 
 
@@ -84,7 +89,7 @@ RV <- function(data, year) {
                 data <- data %>%
                         dplyr::mutate(digit_5 = do.call(paste0, data[configYear$rangeDigit5])) %>%
                         dplyr::mutate(employee = as.numeric(data[, configYear$ilocEmployee])) %>%
-                        dplyr:: select(c(sgg2015, digit_5, employee)) %>%
+                        dplyr::select(c(sgg2015, digit_5, employee)) %>%
                         dplyr::group_by(sgg2015, digit_5) %>%
                         dplyr::summarise(employee = sum(employee))
 
@@ -116,7 +121,7 @@ RV <- function(data, year) {
                         dplyr::mutate(RV = pg * hg_sum) %>%                                # Calculate RV
                         dplyr::group_by(sgg2015) %>%                                           # Sum of RV by sigungu
                         dplyr::summarise(RV = sum(RV)) %>%
-                        dplyr:: rename(!!quo_name(rv_col_name) := RV)
+                        dplyr::rename(!!quo_name(rv_col_name) := RV)
         }
 
         return(rv.val)

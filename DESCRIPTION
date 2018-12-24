@@ -17,8 +17,7 @@ RoxygenNote: 6.1.1
 Imports:
         tibble,
         dplyr,
-        sf,
-        
+        sf
 URL: https://github.com/kkyusik/IndVariety
 BugReports: https://github.com/kkyusik/IndVariety/issues
 Depends: R (>= 3.5.1)

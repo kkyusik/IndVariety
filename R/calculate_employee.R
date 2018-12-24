@@ -7,7 +7,12 @@
 #' @examples
 #' data <- read.table("KoreanBusinessSurvey.txt", sep = "\t", colClasses = "character")
 #' employee_number(data = data, year = 2013)
-
+#' @importFrom dplyr mutate
+#' @importFrom dplyr summarise
+#' @importFrom dplyr group_by
+#' @importFrom dplyr left_join
+#' @importFrom dplyr select
+#' @importFrom dplyr rename
 
 
 employee_number <- function(data, year) {
