@@ -2,19 +2,19 @@
 % Please edit documentation in R/calculate_employee.R
 \name{employee_number}
 \alias{employee_number}
-\title{configure year Function}
+\title{Calculation of the number of total workers based on Korean Business Survey data.}
 \usage{
 employee_number(data, year)
 }
 \arguments{
-\item{data}{Load your Korea Business Survey data.}
+\item{data}{Put your Korean Business Survey data dataframe.}
 
-\item{year}{Put \code{year} you want to analyze.}
+\item{year}{Put \code{year} you want to calculate.}
 }
 \description{
-This function allows you to express your love of cats.
+This function allows you to calculate total workers employed based on 2015 administration.
 }
 \examples{
-employee_number()
+data <- read.table("KoreanBusinessSurvey.txt", sep = "\\t", colClasses = "character")
+employee_number(data = data, year = 2013)
 }
-\keyword{employee_number}

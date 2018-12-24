@@ -4,7 +4,7 @@
 \name{IndVariety-package}
 \alias{IndVariety}
 \alias{IndVariety-package}
-\title{IndVariety: A package for calculation of industrial variety.}
+\title{IndVariety: A Package for Calculation of Industrial Variety.}
 \description{
 Calculation of industrial variety.
 }

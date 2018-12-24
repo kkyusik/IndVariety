@@ -1,12 +1,13 @@
-#' configure year Function
+#' Calculation of the number of total workers based on Korean Business Survey data.
 #'
-#' This function allows you to express your love of cats.
-#' @param data Load your Korea Business Survey data.
-#' @param year Put `year` you want to analyze.
-#' @keywords employee_number
+#' This function allows you to calculate total workers employed based on 2015 administration.
+#' @param data Put your Korean Business Survey data dataframe.
+#' @param year Put `year` you want to calculate.
 #' @export
 #' @examples
-#' employee_number()
+#' data <- read.table("KoreanBusinessSurvey.txt", sep = "\t", colClasses = "character")
+#' employee_number(data = data, year = 2013)
+
 
 
 employee_number <- function(data, year) {

@@ -1,12 +1,12 @@
-#' configure year Function
+#' Calculation of Unrelated Variety based on Korean Business Survey data.
 #'
-#' This function allows you to express your love of cats.
-#' @param data Put your Korean Business Survey data.
-#' @param input_year Put `year` you want to analyze.
-#' @keywords config_year
+#' This function allows you to calculate Unrelated Variety index based on 2015 administration.
+#' @param data Put your Korean Business Survey data dataframe.
+#' @param year Put `year` you want to calculate.
 #' @export
 #' @examples
-#' UV()
+#' data <- read.table("KoreanBusinessSurvey.txt", sep = "\t", colClasses = "character")
+#' UV(data = data, year = 2013)
 
 
 UV <- function(data, year) {

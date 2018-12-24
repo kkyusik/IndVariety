@@ -2,19 +2,19 @@
 % Please edit documentation in R/calcaulte_UV.R
 \name{UV}
 \alias{UV}
-\title{configure year Function}
+\title{Calculation of Unrelated Variety based on Korean Business Survey data.}
 \usage{
 UV(data, year)
 }
 \arguments{
-\item{data}{Put your Korean Business Survey data.}
+\item{data}{Put your Korean Business Survey data dataframe.}
 
-\item{input_year}{Put \code{year} you want to analyze.}
+\item{year}{Put \code{year} you want to calculate.}
 }
 \description{
-This function allows you to express your love of cats.
+This function allows you to calculate Unrelated Variety index based on 2015 administration.
 }
 \examples{
-UV()
+data <- read.table("KoreanBusinessSurvey.txt", sep = "\\t", colClasses = "character")
+UV(data = data, year = 2013)
 }
-\keyword{config_year}

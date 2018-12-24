@@ -1,3 +1,5 @@
+^README\.Rmd$
+^LICENSE\.md$
 ^.*\.Rproj$ # Automatically added by RStudio,
 ^\.Rproj\.user$
 
@@ -5,4 +7,3 @@
 .gitignore
 README.md
 .Rhistory
-

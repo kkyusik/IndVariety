@@ -2,17 +2,19 @@
 % Please edit documentation in R/calculate_RV.R
 \name{RV}
 \alias{RV}
-\title{configure year Function}
+\title{Calculation of Related Variety based on Korean Business Survey data.}
 \usage{
 RV(data, year)
 }
 \arguments{
-\item{input_year}{Put \code{year} you want to analyze.}
+\item{data}{Put your Korean Business Survey data dataframe.}
+
+\item{year}{Put \code{year} you want to calculate.}
 }
 \description{
-This function allows you to express your love of cats.
+This function allows you to calculate Related Variety index based on 2015 administration.
 }
 \examples{
-config_year()
+data <- read.table("KoreanBusinessSurvey.txt", sep = "\\t", colClasses = "character")
+RV(data = data, year = 2013)
 }
-\keyword{config_year}
