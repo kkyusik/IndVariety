@@ -1,7 +1,4 @@
----
-title: "dd"
-layout: page
----
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # IndVariety
@@ -17,34 +14,9 @@ stronger from external economic shocks.
 
 Each variety is calculated from the entropy index. The advantage of
 using entropy index is that the index cannot cause multicollinearity in
-linear regression model (FRENKENÃ, VAN OORTÃ, and VERBURG 2007). To
+linear regression model (Frenken, Van Oort, and Verburg 2007). To
 calculate related and unrelated variety I refer to the research of
-FRENKENÃ, VAN OORTÃ, and VERBURG (2007), and the index can be calculated
-as follow:
-
-\[
-P_g = \sum_{i \in S}P_i
-\]
-
-\(P_g\) is calculated by summation of shares of 5-digit sectors within
-2-digit sectors \(S_g\). Based on \(P_g\), unrelated variety is derived
-in 2-digit levels.
-
-\[
-UV = \sum_{g=1}^{G}P_g \log \left(\frac{1}{P_g}\right)
-\]
-
-Within each 2-digit level, related variety is weighted sum of entropy.
-
-\[
-RV = \sum_{g=1}^{G}P_g H_g
-\]
-
-And \(H_g\) is as follow,
-
-\[
-H_g = \sum_{i \in S_g}\frac{p_i}{P_g} \log_2 \left(\frac{1}{p_i/P_g}\right)
-\]
+(Frenken, Van Oort, and Verburg 2007).
 
 ## Install package
 
@@ -85,11 +57,11 @@ employee_number(data = data, year = 2013)
 
 <div id="refs" class="references">
 
-<div id="ref-frenken_2007">
+<div id="ref-frenken2007related">
 
-FRENKENÃ, KOEN, FRANK VAN OORTÃ, and THIJS VERBURG. 2007. “Related
+Frenken, Koen, Frank Van Oort, and Thijs Verburg. 2007. “Related
 Variety, Unrelated Variety and Regional Economic Growth.” *Regional
-Studies* 41: 685–97.
+Studies* 41 (5): 685–97.
 
 </div>
 
