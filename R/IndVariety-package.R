@@ -5,7 +5,7 @@
 #' @importFrom dplyr left_join
 #' @importFrom dplyr select
 #' @importFrom dplyr rename
-#' @importFrom magrittr "%>%"
+#' @importFrom magrittr %>%
 #'
 #' @keywords internal
 "_PACKAGE"
