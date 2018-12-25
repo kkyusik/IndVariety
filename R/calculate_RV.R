@@ -12,11 +12,8 @@
 #' @importFrom dplyr left_join
 #' @importFrom dplyr select
 #' @importFrom dplyr rename
-#' @importFrom magrittr "%>%"
+#' @importFrom dplyr quo_name
 #' @export
-
-
-
 RV <- function(data, year) {
 
         "%ni%" <- Negate("%in%")
