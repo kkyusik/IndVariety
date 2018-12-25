@@ -44,7 +44,7 @@ UV <- function(data, year) {
                                   by = sgg_name) %>%
                         dplyr::mutate(digit_5 = do.call(paste0, data[configYear$rangeDigit5])) %>%
                         dplyr::mutate(employee = as.numeric(data[, configYear$ilocEmployee])) %>%
-                        dplyr:: select(c(sgg2015, digit_5, employee)) %>%
+                        dplyr::select(c(sgg2015, digit_5, employee)) %>%
                         dplyr::group_by(sgg2015, digit_5) %>%
                         dplyr::summarise(employee = sum(employee))
 
@@ -69,7 +69,7 @@ UV <- function(data, year) {
                 uv.val <- pg %>%                                                            # Sum of UV by sigungu
                         dplyr::group_by(sgg2015) %>%
                         dplyr::summarise(UV = sum(UV)) %>%
-                        dplyr:: rename(!!quo_name(uv_col_name) := UV)
+                        dplyr::rename(!!quo_name(uv_col_name) := UV)
 
 
 
@@ -86,7 +86,7 @@ UV <- function(data, year) {
                 data <- data %>%
                         dplyr::mutate(digit_5 = do.call(paste0, data[configYear$rangeDigit5])) %>%
                         dplyr::mutate(employee = as.numeric(data[, configYear$ilocEmployee])) %>%
-                        dplyr:: select(c(sgg2015, digit_5, employee)) %>%
+                        dplyr::select(c(sgg2015, digit_5, employee)) %>%
                         dplyr::group_by(sgg2015, digit_5) %>%
                         dplyr::summarise(employee = sum(employee))
 
@@ -112,7 +112,7 @@ UV <- function(data, year) {
                 uv.val <- pg %>%                                                            # Sum of UV by sigungu
                         dplyr::group_by(sgg2015) %>%
                         dplyr::summarise(UV = sum(UV)) %>%
-                        dplyr:: rename(!!quo_name(uv_col_name) := UV)
+                        dplyr::rename(!!quo_name(uv_col_name) := UV)
         }
 
         return(uv.val)
