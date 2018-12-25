@@ -3,7 +3,7 @@
 #' This function allows you to calculate Unrelated Variety index based on 2015 administration.
 #' @param data Put your Korean Business Survey data dataframe.
 #' @param year Put `year` you want to calculate.
-#' @export
+
 #' @examples
 #'
 #' data <- read.table("KoreanBusinessSurvey.txt", sep = "\t", colClasses = "character")
@@ -15,7 +15,7 @@
 #' @importFrom dplyr select
 #' @importFrom dplyr rename
 #' @importFrom dplyr quo_name
-
+#' @export
 UV <- function(data, year) {
 
         "%ni%" <- Negate("%in%")
