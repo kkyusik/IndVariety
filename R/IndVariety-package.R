@@ -7,6 +7,6 @@
 #' @importFrom dplyr rename
 #' @importFrom magrittr "%>%"
 #' @importFrom dplyr quo_name
-#'
+#' @importFrom dplyr case_when
 #' @keywords internal
 "_PACKAGE"
