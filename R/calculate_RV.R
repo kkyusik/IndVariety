@@ -15,6 +15,7 @@
 #' @importFrom magrittr %>%
 #' @export
 
+`%>%` <- magrittr::`%>%`
 
 RV <- function(data, year) {
 
