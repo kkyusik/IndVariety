@@ -6,6 +6,7 @@
 #' @importFrom dplyr select
 #' @importFrom dplyr rename
 #' @importFrom magrittr "%>%"
+#' @importFrom dplyr quo_name
 #'
 #' @keywords internal
 "_PACKAGE"
